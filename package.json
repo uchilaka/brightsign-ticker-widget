@@ -8,7 +8,7 @@
   "scripts": {
     "demo": "node-dev demo.js",
     "simulate": "json-server --watch ./build/ticker_data.json --port ${PORT:-8080}",
-    "start": "json-server ./build/ticker_data.json --port $PORT"
+    "start": "json-server -H 0.0.0.0 ./build/ticker_data.json --port $PORT"
   },
   "dependencies": {
     "express": "^4.16.3",
