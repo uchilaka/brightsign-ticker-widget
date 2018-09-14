@@ -1,0 +1,6 @@
+{
+  "stocks": [
+    { "id": 1, "symbol": "ADS", "price": 500 },
+    { "id": 2, "symbol": "APPL", "price": 300 }
+  ]
+}
