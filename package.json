@@ -7,7 +7,7 @@
   "private": false,
   "scripts": {
     "demo": "node-dev demo.js",
-    "start": "json-server --watch ./build/ticker_data.json"
+    "start": "json-server --watch ./build/ticker_data.json --port ${PORT:-8080}"
   },
   "dependencies": {
     "express": "^4.16.3",
