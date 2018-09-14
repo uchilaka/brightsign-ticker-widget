@@ -53,7 +53,7 @@
         var arrayOfFields = Object.keys(fields);
         var packet = {};
         for (var i = 0; i < arrayOfFields.length; i++) {
-          const field = fields[arrayOfFields[i]];
+          var field = fields[arrayOfFields[i]];
           packet[field] = data["Global Quote"][arrayOfFields[i]];
         }
         if (packet.price)
