@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <div id="ticker_output">No ticker deployed</div>
+  <script type="text/javascript">
+    // The JavaScript code
+    var tickerDisplay = document.querySelector('#ticker_output');
+
+    function updateTickerInfo(ticker) {
+      tickerDisplay.innerHTML = `
+        ${ticker.symbol} ${ticker.price}
+      `;
+    }
+
+    tickerDisplay.innerHTML = "We deployed a ticker";
+    fetch("http://localhost:3000/stocks?symbol=ADS", { "Content-Type": "application/json" })
+      .then(function (response) {
+        console.log("Result -> ", response)
+        return response.json();
+      })
+      .then(function (data) {
+        console.log("Data -> ", data);
+        // Test to make sure you have an array
+        if (Array.isArray(data) && data.length) {
+          // Update the ticker data for the result to the UI with the helper function
+          updateTickerInfo(data[0]);
+        }
+      })
+      .catch(function (err) {
+        console.error("Request failed :(")
+      });
+  </script>
+</body>
+
+</html>
