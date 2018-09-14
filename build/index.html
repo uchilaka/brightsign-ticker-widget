@@ -8,9 +8,12 @@
     var tickerDisplay = document.querySelector('#ticker_output');
 
     function updateTickerInfo(ticker) {
-      tickerDisplay.innerHTML = `
-        ${ticker.symbol} ${ticker.price}
-      `;
+      // @TODO some more sophisticated formatting
+      // @TODO probably best to do this all with react?
+      tickerDisplay.innerHTML = ticker.symbol + " " + ticker.price;
+      // tickerDisplay.innerHTML = `
+      //   ${ticker.symbol} ${ticker.price}
+      // `;
     }
 
     tickerDisplay.innerHTML = "We deployed a ticker";
