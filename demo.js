@@ -1,8 +1,22 @@
 const express = require("express");
-const app = express();
+require("dotenv").load();
+const jsonServer = require("json-server");
+const server = jsonServer.create();
+const router = jsonServer.router("./build/ticker_data.json");
+// Ticker middleware
+const alphaVantage = require("./middleware/alpha-vantage");
 
-app.use(express.static("build"));
+server.use(jsonServer.bodyParser);
 
-const PORT = 4000;
+// // Serve static files
+server.use(express.static("build"));
 
-app.listen(PORT, () => console.log(`Ticker demo is running @ ${PORT}`));
+// Configure middleware
+server.get("/live/:symbol", alphaVantage);
+
+// Configure specific endpoint
+server.use(router);
+
+const PORT = process.env.PORT || 4000;
+
+server.listen(PORT, () => console.log(`Ticker demo is running @ ${PORT}`));
