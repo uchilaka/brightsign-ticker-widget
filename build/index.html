@@ -14,7 +14,7 @@
     }
 
     tickerDisplay.innerHTML = "We deployed a ticker";
-    fetch("http://localhost:3000/stocks?symbol=ADS", { "Content-Type": "application/json" })
+    fetch("https://brightsign-ticker-api.herokuapp.com/stocks?symbol=ADS", { "Content-Type": "application/json" })
       .then(function (response) {
         console.log("Result -> ", response)
         return response.json();
